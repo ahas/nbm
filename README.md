@@ -8,13 +8,13 @@
 NBM can save your project and make to reusable.
 also can declare own variables simply and replace all in text files.
 
-## Installing NBM
+## Installation
 
 ```
 npm install -g @ahas/nbm
 ```
 
-## How to use
+## Usage
 
 Save files in the current working directory
 
@@ -105,3 +105,7 @@ const options = {
   ...
 };
 ```
+
+## License
+
+NBM is [MIT licensed](LICENSE).
