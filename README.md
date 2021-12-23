@@ -39,7 +39,7 @@ You can apply variable using nbm.js
 create nbm.js in the root of project directory
 
 You can use variable for NBM with this format
-${nbm variable_name}
+'${nbm variable_name}'
 
 NBM will find this format and replace
 
