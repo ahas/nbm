@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "baseUrl": "./src",
+        "target": "ESNext",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "strict": true,
+        "removeComments": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "incremental": true,
+        "skipLibCheck": true,
+        "strictPropertyInitialization": false,
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "exclude": ["templates"]
+}
