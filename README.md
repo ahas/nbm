@@ -35,15 +35,15 @@ nbm remove <name_or_id>
 ```
 
 ## nbm.js
-You can apply variables using nbm.js
+You can apply variables using `nbm.js`
 
-create `nbm.js` in the root of project directory
+Create `nbm.js` in the root of project directory.
 
-You can use variable for NBM with this format
+You can use variable for NBM with this format.
 
 `${nbm variable_name}`
 
-NBM will find this format and replace
+NBM will find this format and replace.
 
 ## Example
 
@@ -73,11 +73,11 @@ module.exports = {
 };
 ```
 
-nbm.js exports the object having 'vars' property
+nbm.js exports the object having 'vars' property.
 
 When you run `nbm save <name>`
 
-NBM ask variable replacement values
+NBM ask variable replacement values.
 
 ```
 nbm clone <name>
