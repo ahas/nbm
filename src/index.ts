@@ -38,22 +38,22 @@ program.command("save [boilerplate]").action(async (boilerplate) => {
         }
     }
 
-    // Input template name
+    // Input boilerplate name
     do {
         const { name }: { name: string } = await inquirer.prompt({
             type: "input",
             name: "name",
-            message: "please input your template name",
+            message: "please input your boilerplate name",
             default: boilerplate,
         });
 
         if (!name) {
-            console.log("template name must not be empty".warn);
+            console.log("boilerplate name must not be empty".warn);
             continue;
         } else {
             config.destination = rootDir("boilerplates", name);
             if (fs.existsSync(config.destination)) {
-                console.log(`template ${name} already exists`.warn);
+                console.log(`boilerplate ${name} already exists`.warn);
                 continue;
             }
         }
@@ -90,38 +90,38 @@ function getBoilerplate(name_or_id: string): string | null {
     const name: string | undefined = name_or_id;
 
     const boilerplates = fs.readdirSync(rootDir("boilerplates"));
-    let template: string | undefined;
+    let boilerplate: string | undefined;
 
     if (isNaN(id)) {
-        template = boilerplates.find((x) => x == name);
-        if (!template) {
-            console.log(`template name ${name} does not exist`.warn);
+        boilerplate = boilerplates.find((x) => x == name);
+        if (!boilerplate) {
+            console.log(`boilerplate name ${name} does not exist`.warn);
             return null;
         }
     } else {
-        template = boilerplates[id];
-        if (!template) {
-            console.log(`template id ${id} does not exist`.warn);
+        boilerplate = boilerplates[id];
+        if (!boilerplate) {
+            console.log(`boilerplate id ${id} does not exist`.warn);
             return null;
         }
     }
 
-    return rootDir("boilerplates", template);
+    return rootDir("boilerplates", boilerplate);
 }
 
 program.command("remove <name_or_id>").action((name_or_id: string) => {
-    const template = getBoilerplate(name_or_id);
-    if (template) {
-        console.log(`template ${name_or_id} has been removed`);
-        fs.removeSync(template);
+    const boilerplate = getBoilerplate(name_or_id);
+    if (boilerplate) {
+        console.log(`boilerplate ${name_or_id} has been removed`);
+        fs.removeSync(boilerplate);
         printList();
     }
 });
 
 program.command("clone <name_or_id>").action(async (name_or_id) => {
-    const template = getBoilerplate(name_or_id);
+    const boilerplate = getBoilerplate(name_or_id);
 
-    if (!template) {
+    if (!boilerplate) {
         return;
     }
 
@@ -142,15 +142,15 @@ program.command("clone <name_or_id>").action(async (name_or_id) => {
     }
 
     try {
-        for (const file of fs.readdirSync(template)) {
+        for (const file of fs.readdirSync(boilerplate)) {
             if (basename(file) === "nbm.js") {
                 continue;
             }
-            fs.copySync(resolve(template, file), resolve(cwd, basename(file)));
+            fs.copySync(resolve(boilerplate, file), resolve(cwd, basename(file)));
         }
 
         const files = glob.sync("**/*", { cwd, dot: true, absolute: true });
-        const configPath = rootDir(template, "nbm.js");
+        const configPath = rootDir(boilerplate, "nbm.js");
 
         if (fs.existsSync(configPath)) {
             const config = require(configPath);
