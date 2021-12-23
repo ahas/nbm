@@ -4,18 +4,12 @@
 </p>
 
 ## Description
-<<<<<<< HEAD
 
-=======
->>>>>>> 1761e177c721eb040fb3815434cbad0021073510
 NBM can save your project and make to reusable.
 also can declare own variables simply and replace all in text files.
 
 ## Installing NBM
-<<<<<<< HEAD
 
-=======
->>>>>>> 1761e177c721eb040fb3815434cbad0021073510
 ```
 npm install -g @ahas/nbm
 ```
@@ -23,46 +17,31 @@ npm install -g @ahas/nbm
 ## How to use
 
 Save files in the current working directory
-<<<<<<< HEAD
 
-=======
->>>>>>> 1761e177c721eb040fb3815434cbad0021073510
 ```
 nbm save [name]
 ```
 
 Clone from saved boilerplate by name or id
-<<<<<<< HEAD
 
-=======
->>>>>>> 1761e177c721eb040fb3815434cbad0021073510
 ```
 nbm clone <name_or_id>
 ```
 
 List saved boilerplates
-<<<<<<< HEAD
 
-=======
->>>>>>> 1761e177c721eb040fb3815434cbad0021073510
 ```
 nbm list
 ```
 
 Remove saved boilerplate by name or id
-<<<<<<< HEAD
 
-=======
->>>>>>> 1761e177c721eb040fb3815434cbad0021073510
 ```
 nbm remove <name_or_id>
 ```
 
 ## nbm.js
-<<<<<<< HEAD
 
-=======
->>>>>>> 1761e177c721eb040fb3815434cbad0021073510
 You can apply variables using `nbm.js`
 
 Create `nbm.js` in the root of project directory.
@@ -86,10 +65,7 @@ const options = {
 ```
 
 #### nbm.js
-<<<<<<< HEAD
 
-=======
->>>>>>> 1761e177c721eb040fb3815434cbad0021073510
 ```js
 module.exports = {
     vars: {
@@ -121,10 +97,7 @@ cloned
 ```
 
 then index.js will be replaced with 'default-application-name'
-<<<<<<< HEAD
 
-=======
->>>>>>> 1761e177c721eb040fb3815434cbad0021073510
 ```js
 const options = {
   ...
@@ -132,7 +105,3 @@ const options = {
   ...
 };
 ```
-<<<<<<< HEAD
-=======
-
->>>>>>> 1761e177c721eb040fb3815434cbad0021073510
