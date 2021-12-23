@@ -15,7 +15,7 @@ bootstrap();
 
 const cwd = process.cwd();
 
-program.command("save [template_name]").action(async (template_name) => {
+program.command("save [boilerplate]").action(async (boilerplate) => {
     const config = {
         name: "",
         ignore: [] as string[],
@@ -44,14 +44,14 @@ program.command("save [template_name]").action(async (template_name) => {
             type: "input",
             name: "name",
             message: "please input your template name",
-            default: template_name,
+            default: boilerplate,
         });
 
         if (!name) {
             console.log("template name must not be empty".warn);
             continue;
         } else {
-            config.destination = rootDir("templates", name);
+            config.destination = rootDir("boilerplates", name);
             if (fs.existsSync(config.destination)) {
                 console.log(`template ${name} already exists`.warn);
                 continue;
@@ -78,39 +78,39 @@ program.command("save [template_name]").action(async (template_name) => {
         fs.copySync(resolve(cwd, file), resolve(config.destination, file), { recursive: true });
     }
 
-    console.log(`saved template ${config.name} to ${rootDir()}`.success);
+    console.log(`saved boilerplate ${config.name} to ${rootDir()}`.success);
 });
 
 program.command("list").action(() => {
     printList();
 });
 
-function getTemplate(name_or_id: string): string | null {
+function getBoilerplate(name_or_id: string): string | null {
     const id = +name_or_id;
     const name: string | undefined = name_or_id;
 
-    const templates = fs.readdirSync(rootDir("templates"));
+    const boilerplates = fs.readdirSync(rootDir("boilerplates"));
     let template: string | undefined;
 
     if (isNaN(id)) {
-        template = templates.find((x) => x == name);
+        template = boilerplates.find((x) => x == name);
         if (!template) {
             console.log(`template name ${name} does not exist`.warn);
             return null;
         }
     } else {
-        template = templates[id];
+        template = boilerplates[id];
         if (!template) {
             console.log(`template id ${id} does not exist`.warn);
             return null;
         }
     }
 
-    return rootDir("templates", template);
+    return rootDir("boilerplates", template);
 }
 
 program.command("remove <name_or_id>").action((name_or_id: string) => {
-    const template = getTemplate(name_or_id);
+    const template = getBoilerplate(name_or_id);
     if (template) {
         console.log(`template ${name_or_id} has been removed`);
         fs.removeSync(template);
@@ -119,7 +119,7 @@ program.command("remove <name_or_id>").action((name_or_id: string) => {
 });
 
 program.command("clone <name_or_id>").action(async (name_or_id) => {
-    const template = getTemplate(name_or_id);
+    const template = getBoilerplate(name_or_id);
 
     if (!template) {
         return;

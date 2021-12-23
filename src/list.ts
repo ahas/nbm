@@ -7,15 +7,15 @@ export function printList() {
     const table = new Table();
     table.push(["id", "name", "modified"]);
 
-    const templates = fs.readdirSync(rootDir("templates"));
-    if (templates.length == 0) {
+    const boilerplates = fs.readdirSync(rootDir("boilerplates"));
+    if (boilerplates.length == 0) {
         console.log("empty".warn);
         return;
     }
 
-    for (const [id, template] of templates.entries()) {
-        const mtime = fs.statSync(rootDir("templates", template)).mtime;
-        table.push([id, template, moment(mtime).format("YYYY-MM-DD HH:mm:ss")]);
+    for (const [id, boilerplate] of boilerplates.entries()) {
+        const mtime = fs.statSync(rootDir("boilerplates", boilerplate)).mtime;
+        table.push([id, boilerplate, moment(mtime).format("YYYY-MM-DD HH:mm:ss")]);
     }
 
     console.log(table.toString());

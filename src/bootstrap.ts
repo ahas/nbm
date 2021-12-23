@@ -16,7 +16,7 @@ declare global {
 }
 
 export default () => {
-    fs.mkdirSync(rootDir("templates"), { recursive: true });
+    fs.mkdirSync(rootDir("boilerplates"), { recursive: true });
 
     colors.setTheme({
         success: "brightGreen",
@@ -31,6 +31,6 @@ export default () => {
 
     const pkg = require("../package.json");
     program.version(pkg.version);
-    program.description("NBM node.js template manager");
+    program.description("NBM node.js boilerplate manager");
     program.usage("[options] <args...>");
 };

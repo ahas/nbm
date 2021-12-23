@@ -5,8 +5,8 @@
     "main": "dist/index.js",
     "author": "ahas",
     "license": "MIT",
-    "bin": {
-        "nbm": "dist/index.js"
+    "repository": {
+        "url": "https://github.com/ahas/nbm"
     },
     "keywords": [
         "reusability",
@@ -19,6 +19,9 @@
         "dist",
         "README.md"
     ],
+    "bin": {
+        "nbm": "dist/index.js"
+    },
     "scripts": {
         "dev": "ts-node src/index.ts",
         "build": "rimraf ./dist && tsc -p tsconfig.json"
