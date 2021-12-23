@@ -35,18 +35,21 @@ nbm remove <name_or_id>
 ```
 
 ## nbm.js
-You can apply variable using nbm.js
-create nbm.js in the root of project directory
+You can apply variables using nbm.js
+
+create `nbm.js` in the root of project directory
 
 You can use variable for NBM with this format
-'${nbm variable_name}'
+
+`${nbm variable_name}`
 
 NBM will find this format and replace
 
-For example
-index.js
+## Example
 
-```
+#### index.js
+
+```js
 const options = {
   ...
   app_name: "${nbm app_name}"
@@ -54,8 +57,8 @@ const options = {
 };
 ```
 
-nbm.js
-```
+#### nbm.js
+```js
 module.exports = {
     vars: {
         app_name: {
@@ -72,7 +75,8 @@ module.exports = {
 
 nbm.js exports the object having 'vars' property
 
-When you run ```nbm save <name>```
+When you run `nbm save <name>`
+
 NBM ask variable replacement values
 
 ```
@@ -85,7 +89,7 @@ cloned
 ```
 
 then index.js will be replaced with 'default-application-name'
-```
+```js
 const options = {
   ...
   app_name: "default-application-name"
