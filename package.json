@@ -1,7 +1,7 @@
 {
     "name": "@ahas/nbm",
     "version": "0.0.3",
-    "description": "node.js template manager",
+    "description": "node.js boilerplate manager",
     "main": "dist/index.js",
     "author": "ahas",
     "license": "MIT",
