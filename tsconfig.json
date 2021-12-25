@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "./dist",
         "baseUrl": "./src",
-        "target": "ESNext",
+        "target": "ES6",
         "module": "CommonJS",
         "moduleResolution": "node",
         "strict": true,

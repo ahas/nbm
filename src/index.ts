@@ -5,10 +5,9 @@ import fs from "fs-extra";
 import bootstrap from "./bootstrap";
 import inquirer from "inquirer";
 import { rootDir } from "./paths";
-import { resolve } from "path";
 import { excludeIgnoreFiles, inputIgnoreFiles, readIgnoreFile } from "./ignore";
 import { printList } from "./list";
-import { basename, dirname } from "path";
+import { resolve, basename, dirname } from "path";
 import glob from "glob";
 
 bootstrap();
@@ -176,9 +175,8 @@ program.command("clone <name_or_id>").action(async (name_or_id) => {
                     }
                     const text = fs.readFileSync(file).toString().replace(regex, vars[key]);
                     fs.writeFileSync(file, text);
-
-                    const newFile = resolve(dirname(file), basename(file).replace(regex, vars[key])).replaceAll(
-                        "\\",
+                    const newFile = resolve(dirname(file), basename(file).replace(regex, vars[key])).replace(
+                        /\\/gi,
                         "/",
                     );
                     if (file != newFile) {
