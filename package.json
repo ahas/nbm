@@ -1,6 +1,6 @@
 {
     "name": "@ahas/nbm",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "node.js boilerplate manager",
     "main": "dist/index.js",
     "author": "ahas",
