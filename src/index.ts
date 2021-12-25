@@ -8,7 +8,7 @@ import { rootDir } from "./paths";
 import { resolve } from "path";
 import { excludeIgnoreFiles, inputIgnoreFiles, readIgnoreFile } from "./ignore";
 import { printList } from "./list";
-import { basename, dirname } from "path/posix";
+import { basename, dirname } from "path";
 import glob from "glob";
 
 bootstrap();
