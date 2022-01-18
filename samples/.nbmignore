@@ -1,0 +1,10 @@
+repos
+
+# common
+.git
+**/*/node_modules
+**/*/package-lock.json
+**/*/yarn.lock
+**/*/.yarn
+**/*/.yarnrc.yml
+**/*/.pnp*

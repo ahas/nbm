@@ -9,7 +9,7 @@ export function printList() {
 
     const boilerplates = fs.readdirSync(rootDir("boilerplates"));
     if (boilerplates.length == 0) {
-        console.log("empty".warn);
+        console.log("No saved boilerplates".warn);
         return;
     }
 
